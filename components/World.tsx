@@ -9,7 +9,7 @@ import { fadeIn, staggerContainer } from '@/lib/animations';
 const World = () => (
   <section className={`${styles.paddings} relative z-10 bg-wedgewood`}>
     <motion.div
-      variants={staggerContainer}
+      variants={staggerContainer(0.3, 1)}
       initial="hidden"
       whileInView="show"
       viewport={{ once: false, amount: 0.25 }}

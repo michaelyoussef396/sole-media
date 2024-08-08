@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { navVariants, itemVariants } from "@/lib/animations";
+import { menuVariants, itemVariants } from "@/lib/animations";
 
 const NavBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -10,47 +10,49 @@ const NavBar: React.FC = () => {
   const toggleMenu = () => setIsOpen((prev) => !prev);
 
   return (
-    <motion.header
-      className="fixed top-10 right-0 left-0 z-50 flex justify-end items-center p-4"
-      variants={navVariants}
-      initial="hidden"
-      whileInView="show"
-    >
-      {/* Buttons on the right */}
-      <div className="flex items-center space-x-4">
-        <button className="px-4 py-2 text-sm font-semibold text-white bg-wedgewood rounded-full hover:bg-baliHai">
-          + Become a Client
-        </button>
+    <div className="relative">
+      <motion.header
+        className="fixed top-0 right-0 left-0 z-50 flex justify-end items-center p-4"
+        variants={menuVariants}
+        initial="hidden"
+        animate="show"
+      >
+        {/* Buttons on the right */}
+        <div className="flex items-center space-x-4">
+          <button className="px-4 py-2 text-sm font-semibold text-white bg-wedgewood rounded-full hover:bg-baliHai">
+            + Become a Client
+          </button>
 
-        <button
-          className="p-2 text-wedgewood bg-white rounded-full focus:outline-none"
-          onClick={toggleMenu}
-        >
-          <motion.svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
+          <button
+            className="p-2 text-wedgewood bg-white rounded-full focus:outline-none"
+            onClick={toggleMenu}
           >
-            <motion.path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"}
-              initial={false}
-              animate={isOpen ? { d: "M6 18L18 6M6 6l12 12" } : { d: "M4 6h16M4 12h16m-7 6h7" }}
-              transition={{ duration: 0.3 }}
-            />
-          </motion.svg>
-        </button>
-      </div>
+            <motion.svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <motion.path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"}
+                initial={false}
+                animate={isOpen ? { d: "M6 18L18 6M6 6l12 12" } : { d: "M4 6h16M4 12h16m-7 6h7" }}
+                transition={{ duration: 0.3 }}
+              />
+            </motion.svg>
+          </button>
+        </div>
+      </motion.header>
 
       <motion.div
-        className="fixed inset-0 bg-wedgewood"
+        className={`fixed inset-0 bg-wedgewood z-40 ${isOpen ? 'block' : 'hidden'}`}
         initial="hidden"
         animate={isOpen ? "show" : "hidden"}
-        variants={navVariants}
+        variants={menuVariants}
       >
         {/* Logo and Business Name in dropdown */}
         {isOpen && (
@@ -89,7 +91,7 @@ const NavBar: React.FC = () => {
           animate={isOpen ? "show" : "hidden"}
           variants={itemVariants}
         >
-          {["Home", "Our Story", "Services", "Pricing", "Contact Us"].map(
+          {["Home", "Our Story", "Services", "Contact Us"].map(
             (item, index) => (
               <motion.a
                 key={index}
@@ -104,7 +106,7 @@ const NavBar: React.FC = () => {
           )}
         </motion.nav>
       </motion.div>
-    </motion.header>
+    </div>
   );
 };
 

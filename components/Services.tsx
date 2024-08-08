@@ -5,7 +5,7 @@ import { fadeIn, staggerContainer, textVariant } from '@/lib/animations';
 
 const Services = () => {
   return (
-    <div className="bg-gradient-to-br from-mischka via-baliHai to-bermudaGray min-h-screen flex flex-col items-center justify-center">
+    <div id='services' className="bg-gradient-to-br from-mischka via-baliHai to-bermudaGray min-h-screen flex flex-col items-center justify-center">
       <motion.div
         variants={staggerContainer(0.3, 0.2)}
         initial="hidden"
@@ -25,14 +25,9 @@ const Services = () => {
           At Sole Media, we offer a suite of services designed to help your business grow and thrive. From innovative web design to powerful SEO optimization, our expert team delivers tailored solutions to elevate your brand.
         </motion.p>
       </motion.div>
-      <motion.div
-        variants={fadeIn('up', 'spring', 0.2, 1)}
-        initial="hidden"
-        animate="show"
-        className="w-full flex justify-center"
-      >
+
         <ServicesBento />
-      </motion.div>
+
     </div>
   );
 }

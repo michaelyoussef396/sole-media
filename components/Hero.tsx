@@ -7,7 +7,7 @@ import Image from "next/image";
 
 const Hero = () => {
   return (
-    <section className="bg-wedgewood flex flex-col justify-center items-center h-screen p-4 mx-auto relative z-10 w-full pt-10 md:pt-20 px-2">
+    <section id="home" className="bg-wedgewood flex flex-col justify-center items-center h-screen p-4 mx-auto relative z-10 w-full pt-10 md:pt-20 px-2">
       <Spotlight className="hidden md:flex absolute top-20 left-1/2 transform -translate-x-1/2" fill="#4A7897" />
 
       {/*<motion.div

@@ -7,16 +7,16 @@ import styles from '@/styles';
 import { fadeIn, staggerContainer } from '@/lib/animations';
 
 const About = () => (
-  <section className={`relative z-10 w-full`}>
+  <section className={`relative z-10 w-full`} id="our-story">
     <div className="absolute inset-0 w-full h-full gradient-02 z-0" />
     <motion.div
-      variants={staggerContainer}
+      variants={staggerContainer(0.25, 0.25)}
       initial="hidden"
       whileInView="show"
       viewport={{ once: false, amount: 0.25 }}
       className="flex flex-col items-center justify-center mx-auto px-4 py-8 bg-bermudaGray w-full h-full"
     >
-      <TypingText title="Our Story" textStyles="text-center" />
+      <TypingText title="Our Story" textStyles="text-center"  />
 
       <motion.p
         variants={fadeIn('up', 'tween', 0.2, 1)}
