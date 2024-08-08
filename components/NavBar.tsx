@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { menuVariants, itemVariants } from "@/lib/animations";
+import { navVariants, itemVariants } from "@/lib/animations";
 
 const NavBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -10,7 +10,12 @@ const NavBar: React.FC = () => {
   const toggleMenu = () => setIsOpen((prev) => !prev);
 
   return (
-    <header className="fixed top-10 right-0 left-0 z-50 flex justify-end items-center p-4">
+    <motion.header
+      className="fixed top-10 right-0 left-0 z-50 flex justify-end items-center p-4"
+      variants={navVariants}
+      initial="hidden"
+      whileInView="show"
+    >
       {/* Buttons on the right */}
       <div className="flex items-center space-x-4">
         <button className="px-4 py-2 text-sm font-semibold text-white bg-wedgewood rounded-full hover:bg-baliHai">
@@ -43,9 +48,9 @@ const NavBar: React.FC = () => {
 
       <motion.div
         className="fixed inset-0 bg-wedgewood"
-        initial="closed"
-        animate={isOpen ? "open" : "closed"}
-        variants={menuVariants}
+        initial="hidden"
+        animate={isOpen ? "show" : "hidden"}
+        variants={navVariants}
       >
         {/* Logo and Business Name in dropdown */}
         {isOpen && (
@@ -80,8 +85,8 @@ const NavBar: React.FC = () => {
 
         <motion.nav
           className="flex flex-col items-center justify-center h-full text-white"
-          initial="closed"
-          animate={isOpen ? "open" : "closed"}
+          initial="hidden"
+          animate={isOpen ? "show" : "hidden"}
           variants={itemVariants}
         >
           {["Home", "Our Story", "Services", "Pricing", "Contact Us"].map(
@@ -99,7 +104,7 @@ const NavBar: React.FC = () => {
           )}
         </motion.nav>
       </motion.div>
-    </header>
+    </motion.header>
   );
 };
 

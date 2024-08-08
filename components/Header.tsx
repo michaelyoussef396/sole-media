@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { AlignJustify, X } from "lucide-react";
+import { navVariants } from "@/lib/animations";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -32,19 +33,26 @@ const Header = ({
   };
 
   return (
-    <div>
-      <div className="p-6 md:p-10 flex items-center justify-between z-50 bg-wedgewood">
+    <div className="p-6 md:p-10 flex items-center justify-between z-50 bg-wedgewood">
+      <motion.div
+        className="flex items-center justify-between w-full"
+        variants={navVariants}
+        initial="hidden"
+        whileInView="show"
+      >
         <div className="flex items-center">
           <Link className="cursor-pointer flex items-center" href="/">
             <Image
               priority
               src="/logo.png"
               alt="Logo"
-              width={60} 
-              height={90} 
-              className="w-16 h-16 md:w-20 md:h-20" 
+              width={60}
+              height={90}
+              className="w-16 h-16 md:w-20 md:h-20"
             />
-            <span className="ml-4 text-xl font-semibold text-mischka md:text-2xl">Sole Media</span> 
+            <span className="ml-4 text-xl font-semibold text-mischka md:text-2xl">
+              Sole Media
+            </span>
           </Link>
         </div>
         <div className="flex-grow flex justify-center">
@@ -70,7 +78,7 @@ const Header = ({
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
