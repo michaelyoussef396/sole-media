@@ -4,6 +4,9 @@ import { Spotlight } from "@/components/ui/Spotlight";
 import Hero from "@/components/Hero";
 import { useState, useRef } from "react";
 import Services from "@/components/Services";
+import About from "@/components/About";
+import World from "@/components/World";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const [isDropdownVisible, setDropdownVisible] = useState(false);
@@ -54,7 +57,10 @@ export default function Home() {
         scrollToServices={scrollToServices}
       />
       <Hero />
+      <About />
+      <World />
       <Services />
+      <Footer />
     </main>
   );
 }
