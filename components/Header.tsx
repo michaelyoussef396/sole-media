@@ -61,16 +61,16 @@ const Header = ({
               to-bermudaGray bg-opacity-50"
           >
             <div onClick={scrollToWebsiteDesign} className="hover:text-gray-50">
-              <a href="#home">Home</a>
+              <a href="/">Home</a> {/* Updated href */}
             </div>
             <div onClick={scrollToGraphicDesign} className="hover:text-gray-50">
-              <a href="#our-story">Our Story</a>
+              <a href="/our-story">Our Story</a>
             </div>
             <div onClick={scrollToShopifyStores} className="hover:text-gray-50">
-            <a href="#services">Services</a>
+              <a href="/services">Services</a>
             </div>
             <div onClick={scrollToBrands} className="hover:text-gray-50">
-            <a href="/contact-us">Contact Us</a>
+              <a href="/contact-us">Contact Us</a>
             </div>
           </div>
         </div>
@@ -93,7 +93,7 @@ const Header = ({
       >
         {isDropDownVisible && (
           <div className="absolute top-4 left-4 flex items-center space-x-4">
-            <Image src="/logo.png" alt="SoleMedia Logo" className="w-10 h-10" />
+            <img src="/logo.png" alt="SoleMedia Logo" className="w-10 h-10"  />
             <span className="text-lg font-semibold text-white">SoleMedia</span>
           </div>
         )}
@@ -107,7 +107,7 @@ const Header = ({
             (item, index) => (
               <motion.a
                 key={index}
-                href="#"
+                href={item === "Home" ? "/" : `/${item.toLowerCase().replace(/\s+/g, '-')}`}
                 className="mb-4 text-4xl font-bold hover:text-baliHai"
                 variants={itemVariants}
                 whileHover={{ scale: 1.1 }}

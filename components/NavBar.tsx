@@ -95,7 +95,7 @@ const NavBar: React.FC = () => {
             (item, index) => (
               <motion.a
                 key={index}
-                href="#"
+                href="/"
                 className="mb-4 text-4xl font-bold hover:text-baliHai"
                 variants={itemVariants}
                 whileHover={{ scale: 1.1 }}

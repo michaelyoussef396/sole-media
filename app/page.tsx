@@ -60,7 +60,6 @@ export default function Home() {
       <About />
       <World />
       <Services />
-      <Footer />
     </main>
   );
 }
