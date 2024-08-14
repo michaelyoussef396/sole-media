@@ -5,6 +5,7 @@ import { useState, useRef } from "react";
 import ServicesHero from "@/components/ServicesHero";
 import Footer from "@/components/Footer";
 import GraphicDesign from "@/components/Graphic-design";
+import ShopifyStores from "@/components/ui/shopify-stores";
 
 export default function ServicesPage() {
   const [isDropdownVisible, setDropdownVisible] = useState(false);
@@ -40,6 +41,7 @@ export default function ServicesPage() {
       />
       <ServicesHero />
       <GraphicDesign />
+      <ShopifyStores />
     </main>
   );
 }
