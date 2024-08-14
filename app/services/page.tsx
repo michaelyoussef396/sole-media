@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import { useState, useRef } from "react";
 import ServicesHero from "@/components/ServicesHero";
 import Footer from "@/components/Footer";
+import GraphicDesign from "@/components/Graphic-design";
 
 export default function ServicesPage() {
   const [isDropdownVisible, setDropdownVisible] = useState(false);
@@ -38,6 +39,7 @@ export default function ServicesPage() {
         scrollToServices={() => scrollToSection(servicesRef)}
       />
       <ServicesHero />
+      <GraphicDesign />
     </main>
   );
 }

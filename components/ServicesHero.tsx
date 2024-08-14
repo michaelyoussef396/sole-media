@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Spotlight } from "@/components/ui/Spotlight";
-import { staggerContainer, textVariant, fadeIn } from "@/lib/animations";
+import { staggerContainer, textVariant, slideIn } from "@/lib/animations";
 import heroImage from "@/public/hero.png";
 
 const ServicesHero = () => {
@@ -49,15 +49,21 @@ const ServicesHero = () => {
 
       {/* Image Section */}
       <motion.div
-        className="flex-1 relative w-full h-[400px] sm:h-[500px] lg:h-[600px] lg:max-w-[50%] z-10"
-        variants={fadeIn('right', 'tween', 0.2, 1)}
+        variants={slideIn('right', 'tween', 0.2, 1)}
+        initial="hidden"
+        animate="show"
+        className="relative w-full md:-mt-[20px] -mt-[12px] lg:max-w-[50%] z-10"
       >
+        <div className="absolute w-full h-[300px] hero-gradient rounded-tl-[140px] z-[0] -top-[30px]" />
+
         <Image
           src={heroImage}
           alt="Services Hero Image"
-          layout="fill"
+          layout="responsive"
+          width={700}
+          height={500}
           objectFit="cover"
-          className="rounded-tl-[140px] z-10"
+          className="rounded-tl-[140px] z-10 relative"
         />
       </motion.div>
     </section>
